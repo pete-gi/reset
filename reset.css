@@ -1,0 +1,158 @@
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition: none;
+    }
+  }
+
+  @supports (transition-behavior: allow-discrete) {
+    * {
+      transition-behavior: allow-discrete;
+    }
+  }
+
+  :root {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+    font-size: 10px;
+    color-scheme: light dark;
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root:focus-within {
+      scroll-behavior: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :root:focus-within {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-block-size: 100vh;
+    line-height: 1.6;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    color: currentColor;
+  }
+
+  textarea:not([rows]) {
+    min-block-size: 10rem;
+  }
+
+  a {
+    color: currentColor;
+  }
+
+  :not([class]) {
+    h1&,
+    h2&,
+    h3&,
+    h4&,
+    h5&,
+    h6& {
+      margin-block: 0.75em;
+      line-height: 1.25;
+      text-wrap: balance;
+      letter-spacing: -0.05ch;
+    }
+
+    p&,
+    ol&,
+    ul& {
+      margin-block-end: 1em;
+    }
+
+    ol&,
+    ul& {
+      padding-inline-start: 1.5em;
+      list-style: revert;
+    }
+
+    li& {
+      margin-block: 0.5em;
+    }
+
+    a& {
+      text-decoration-skip-ink: auto;
+      text-decoration-line: none;
+    }
+  }
+}

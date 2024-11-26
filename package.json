@@ -1,0 +1,17 @@
+{
+  "name": "@pete-gi/reset",
+  "version": "1.0.0",
+  "main": "reset.css",
+  "type": "module",
+  "exports": "./reset.css",
+  "keywords": [
+    "reset",
+    "css"
+  ],
+  "author": "Piotr Golczyk <petegi.sq@gmail.com>",
+  "repository": "https://github.com/pete-gi/reset",
+  "homepage": "https://github.com/pete-gi/reset",
+  "bugs": "https://github.com/pete-gi/reset/issues",
+  "license": "MIT",
+  "description": "Custom CSS reset"
+}
