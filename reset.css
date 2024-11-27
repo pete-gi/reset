@@ -1,57 +1,16 @@
 @layer reset {
-  html {
-    box-sizing: border-box;
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    -webkit-font-smoothing: antialiased;
-    text-size-adjust: none;
-    font-size: 10px;
-    height: 100%;
-    word-break: normal;
-    -moz-tab-size: 4;
-    tab-size: 4;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    :root:focus-within {
-      scroll-behavior: auto;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    :root:focus-within {
-      scroll-behavior: smooth;
-    }
-  }
-
-  @supports (interpolate-size: allow-keywords) {
-    :root {
-      interpolate-size: allow-keywords;
-    }
+  /* Everything */
+  * {
+    margin: 0;
+    padding: 0;
   }
 
   *,
-  ::before,
-  ::after {
-    background-repeat: no-repeat;
-    box-sizing: inherit;
-  }
+  *::before,
+  *::after {
+    box-sizing: border-box;
 
-  ::before,
-  ::after {
-    text-decoration: inherit;
-    vertical-align: inherit;
-  }
-
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    @media (prefers-reduced-motion: reduce) {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -59,226 +18,127 @@
       transition: none;
     }
   }
+  /* END Everything */
 
-  hr {
-    height: 0;
-    color: inherit;
+  /* Root */
+  :root {
+    text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+    font-size: 10px;
+    block-size: 100%;
+    word-break: normal;
+    tab-size: 4;
+
+    @supports (interpolate-size: allow-keywords) {
+      interpolate-size: allow-keywords;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+  /* END Root */
+
+  /* Other */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 100vh;
+    line-height: 1.6;
+    margin: 0;
   }
 
-  summary {
-    display: list-item;
+  img,
+  picture,
+  video,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
   }
 
-  small {
-    font-size: 80%;
+  svg {
+    display: flex;
+    inline-size: 100%;
+    block-size: 100%;
   }
 
-  [hidden] {
-    display: none;
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    color: currentColor;
   }
 
-  abbr[title] {
-    border-bottom: none;
-    text-decoration: underline;
-    text-decoration: underline dotted;
+  textarea:not([rows]) {
+    min-block-size: 10rem;
   }
 
-  a {
-    background-color: transparent;
-    text-decoration-skip-ink: auto;
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
   }
 
-  a[class] {
-    text-decoration: none;
-  }
-
-  a:active,
-  a:hover {
-    outline-width: 0;
-  }
-
-  code,
-  kbd,
-  pre,
-  samp {
-    font-family: monospace, monospace;
-  }
-
-  pre {
-    font-size: 1rem;
-  }
-
-  b,
-  strong {
-    font-weight: bold;
-  }
-
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-
-  sub {
-    bottom: -0.25em;
-  }
-
-  sup {
-    top: -0.5em;
-  }
-
-  table {
-    border-color: inherit;
-    text-indent: 0;
-  }
-
-  iframe {
-    border-style: none;
-  }
-
-  input {
-    border-radius: 0;
-  }
-
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-
-  [type="search"] {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
-  }
-
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  textarea {
-    overflow: auto;
-    resize: vertical;
-  }
-
+  h1,
+  h2,
+  h3,
+  h4,
   button,
   input,
-  optgroup,
-  select,
-  textarea {
-    font: inherit;
+  label {
+    line-height: 1.1;
   }
 
-  optgroup {
-    font-weight: bold;
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
   }
 
-  button {
-    overflow: visible;
+  :where(h1, h2, h3, h4, h5, h6):not([class]) {
+    margin-block: 0.75em;
+    line-height: 1.25;
+    letter-spacing: -0.05ch;
   }
 
-  button,
-  select {
-    text-transform: none;
+  ul,
+  ol {
+    list-style: none;
+
+    &:not([class]) {
+      margin-block-end: 1em;
+    }
   }
 
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"],
-  [role="button"] {
-    cursor: pointer;
+  :where(ol, ul):not([class]) {
+    padding-inline-start: 1.5em;
+    list-style: revert;
   }
 
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-
-  button:-moz-focusring,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    outline: 1px dotted ButtonText;
-  }
-
-  button,
-  html [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    background-color: transparent;
-    border-style: none;
-  }
-
-  a:focus,
-  button:focus,
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline-width: 0;
-  }
-
-  select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-  }
-
-  legend {
-    border: 0;
-    color: inherit;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-    max-width: 100%;
-  }
-
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    color: inherit;
-    font: inherit;
-  }
-
-  [disabled] {
-    cursor: default;
-  }
-
-  img {
-    border-style: none;
-  }
-
-  progress {
-    vertical-align: baseline;
-  }
-
-  [aria-busy="true"] {
-    cursor: progress;
-  }
-
-  [aria-controls] {
-    cursor: pointer;
-  }
-
-  [aria-disabled="true"] {
-    cursor: default;
+  li:not([class]) {
+    margin-block: 0.5em;
   }
 
   a {
     color: currentColor;
     text-decoration-skip-ink: auto;
-    text-decoration-line: none;
   }
 
-  a:not([class]) {
-    text-decoration-line: underline;
+  a[class] {
+    text-decoration-line: none;
   }
+  /* END Other */
 }
